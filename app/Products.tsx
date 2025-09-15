@@ -5,7 +5,7 @@ import { useNextSanityImage } from "next-sanity-image";
 import { ProductsTypes } from "./page";
 import { memo, useContext, useEffect, useState } from "react";
 import { UC } from "./context";
-
+import { pricefFormat } from "../lib/pricefFormat";
 interface ProductsProps {
   products: ProductsTypes;
   gap?: string;
@@ -70,7 +70,7 @@ const Products = ({ products, gap }: ProductsProps) => {
             <span className=" text-sm text-lightGray line-through ">
               ${products.oldPrice}
             </span>
-            <b className=" text-zinc-900 "> ${products.price} </b>
+            <b className=" text-zinc-900 "> ¥{pricefFormat(products.price)} </b>
           </div>
         </nav>
 
